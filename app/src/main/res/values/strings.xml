@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Areca</string>
-    <string name="start">Start!\n</string>
+    <string name="start">Start!</string>
     <string name="next">Next</string>
 </resources>

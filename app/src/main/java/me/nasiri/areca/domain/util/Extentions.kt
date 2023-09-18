@@ -6,7 +6,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
-fun CoroutineScope.updateState(state:PagerState, action:Int) {
+fun CoroutineScope.updateState(state: PagerState, action: Int) {
     launch {
         state.animateScrollToPage(action)
     }
