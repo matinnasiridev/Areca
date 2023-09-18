@@ -1,4 +1,4 @@
-package me.nasiri.areca.peresentation
+package me.nasiri.areca.peresentation.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -7,6 +7,7 @@ import androidx.compose.material3.Text
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import dev.burnoo.cokoin.Koin
 import me.nasiri.areca.domain.di.appModule
+import me.nasiri.areca.peresentation.ui.OnBoarding
 import me.nasiri.areca.peresentation.ui.theme.ArecaTheme
 import org.koin.android.ext.koin.androidContext
 
@@ -20,7 +21,9 @@ class MainActivity : ComponentActivity() {
                 modules(appModule)
             }) {
                 ArecaTheme {
-                    Text(text = "Test")
+                    OnBoarding(data = MainState().boardListData) {
+
+                    }
                 }
             }
         }

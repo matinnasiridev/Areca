@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Areca"
         tools:targetApi="31">
         <activity
-            android:name=".peresentation.MainActivity"
+            android:name=".peresentation.main.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.Areca.MySplash">
             <intent-filter>
