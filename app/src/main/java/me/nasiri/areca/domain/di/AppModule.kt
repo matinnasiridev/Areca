@@ -6,7 +6,9 @@ import me.nasiri.areca.data.location.DefaultLocation
 import me.nasiri.areca.domain.location.LocationClient
 import org.koin.android.ext.koin.androidContext
 import me.nasiri.areca.domain.util.SharedName
+import me.nasiri.areca.peresentation.MainVM
 import org.koin.android.ext.koin.androidApplication
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
@@ -16,9 +18,10 @@ val appModule = module {
     single<LocationClient> {
         DefaultLocation(
             LocationServices.getFusedLocationProviderClient(
-                androidApplication()
-            ), androidApplication()
+                androidContext()
+            ), androidContext()
         )
     }
 
+    viewModel { MainVM() }
 }

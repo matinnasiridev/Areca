@@ -32,9 +32,11 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import dev.burnoo.cokoin.viewmodel.getViewModel
 import me.nasiri.areca.R
 import me.nasiri.areca.data.model.BoardData
 import me.nasiri.areca.domain.util.updateState
+import me.nasiri.areca.peresentation.MainVM
 
 
 /**
@@ -45,12 +47,13 @@ import me.nasiri.areca.domain.util.updateState
 @Composable
 fun OnBoarding(
     data: List<BoardData>,
-    boardingEnd: () -> Unit
+    boardingEnd: MainVM.() -> Unit
 ) {
 
     val scope = rememberCoroutineScope()
     val state = rememberPagerState()
     val index = state.currentPage
+    val viewModel = getViewModel<MainVM>()
 
     Column(modifier = Modifier.fillMaxSize()) {
 
@@ -68,7 +71,7 @@ fun OnBoarding(
         // Bottom Section Of Board:
         BottomSection(size = data.size, index = index) {
             if (index == data.size - 1) // End Of Boarding:
-                boardingEnd()
+                boardingEnd(viewModel)
             else // navigation:
                 scope.updateState(state, index + 1)
         }

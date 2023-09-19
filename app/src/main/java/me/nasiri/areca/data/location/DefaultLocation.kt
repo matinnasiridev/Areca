@@ -2,7 +2,6 @@ package me.nasiri.areca.data.location
 
 
 import android.Manifest
-import android.app.Application
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
@@ -15,12 +14,12 @@ import kotlin.coroutines.resume
 
 class DefaultLocation(
     private val locationClient: FusedLocationProviderClient,
-    private val application: Application
+    private val context: Context
 ) : LocationClient {
 
     override suspend fun getCurrentLocation(): Location? {
         val locationManager =
-            application.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+            context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
         val isGpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) ||
                 locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
 
@@ -34,7 +33,7 @@ class DefaultLocation(
             ) == PackageManager.PERMISSION_GRANTED
         }
 
-        if (!check(application) || !isGpsEnabled)
+        if (!check(context) || !isGpsEnabled)
             return null
 
         return suspendCancellableCoroutine { con ->

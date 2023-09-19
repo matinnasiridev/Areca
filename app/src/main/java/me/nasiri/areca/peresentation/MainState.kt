@@ -1,4 +1,4 @@
-package me.nasiri.areca.peresentation.main
+package me.nasiri.areca.peresentation
 
 import me.nasiri.areca.data.model.BoardData
 
