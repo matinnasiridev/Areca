@@ -92,7 +92,7 @@ fun OnBoardingItem(singleData: BoardData) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .fillMaxHeight(0.6f)
-                    // TODO Remove This Fun
+                    // todo Remove This Fun
                     .background(MaterialTheme.colorScheme.primary)
             )
             Box(

@@ -31,7 +31,7 @@ fun CoroutineScope.updateState(state: PagerState, action: Int) {
 
 /**
  * Shimmer Effect Use Custom Code In Compose.
- *  @param[customColorList] You can set Your custom color for effect
+ *  @param[customColorList] You can set Your custom color for effect.
  */
 fun Modifier.shimmerEffect(customColorList: List<Color>? = null): Modifier = composed {
     var size by remember {
@@ -57,7 +57,7 @@ fun Modifier.shimmerEffect(customColorList: List<Color>? = null): Modifier = com
             end = Offset(startOffsetX + size.width.toFloat(), size.height.toFloat())
         )
     )
-        .onGloballyPositioned {
-            size = it.size
-        }
+    onGloballyPositioned {
+        size = it.size
+    }
 }
