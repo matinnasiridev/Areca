@@ -45,7 +45,7 @@ import me.nasiri.areca.peresentation.MainState
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview(showBackground = true)
 @Composable
-fun HomePage(state: MainState = MainState()) {
+fun MainView(state: MainState = MainState()) {
 
     val drawState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()

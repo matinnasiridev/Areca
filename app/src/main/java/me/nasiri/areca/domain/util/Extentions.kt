@@ -61,3 +61,16 @@ fun Modifier.shimmerEffect(customColorList: List<Color>? = null): Modifier = com
         size = it.size
     }
 }
+
+fun Modifier.setShimmer(condition: Boolean): Modifier = composed {
+    if (condition)
+        shimmerEffect()
+    this
+}
+
+val setDollar: (Any) -> String = {
+    if (it is String && it.contains("$"))
+        it
+    else
+        "$$it"
+}
