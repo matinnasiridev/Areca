@@ -1,5 +1,6 @@
 package me.nasiri.areca.domain.util
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.core.animateFloat
 import androidx.compose.animation.core.infiniteRepeatable
 import androidx.compose.animation.core.rememberInfiniteTransition
@@ -62,6 +63,7 @@ fun Modifier.shimmerEffect(customColorList: List<Color>? = null): Modifier = com
     }
 }
 
+@SuppressLint("UnnecessaryComposedModifier")
 fun Modifier.setShimmer(condition: Boolean): Modifier = composed {
     if (condition)
         shimmerEffect()

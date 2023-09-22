@@ -41,11 +41,13 @@ fun ArecaApp() {
     // MainView(state)
     Surface(modifier = Modifier.padding(12.dp)) {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
-            items(5) {
+            item{
                 Spacer(modifier = Modifier.height(12.dp))
                 ItemGrid()
                 Spacer(modifier = Modifier.height(12.dp))
                 ItemList()
+                Spacer(modifier = Modifier.height(12.dp))
+                SectionGrid("test", listOf(1,2,3))
             }
         }
     }
